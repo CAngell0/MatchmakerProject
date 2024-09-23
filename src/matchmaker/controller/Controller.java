@@ -20,6 +20,7 @@ public class Controller {
 
    public void start(){
       makeRecommendation();
+      askQuestions();
       keyboardInput.close();
    }
 
@@ -64,4 +65,52 @@ public class Controller {
 
       System.out.println(recommendedBook);
    }
+   
+   private void askQuestions(){
+      System.out.println("Do you want a fiction or non-fiction book?");
+      String bookType = keyboardInput.nextLine();
+
+      System.out.println("Do you want a picture book? true or false");
+      boolean hasPictures = keyboardInput.nextBoolean();
+      keyboardInput.nextLine();
+
+      System.out.println("What genre of book do you want?");
+      String genre = keyboardInput.nextLine();
+
+      System.out.println("What difficult do you want the book to be? 1-5");
+      int difficulty = keyboardInput.nextInt();
+      keyboardInput.nextLine();
+
+      System.out.println("What language do you want the book in?");
+      String language = keyboardInput.nextLine();
+
+      String recommendedBook = makeRecommendation(bookType, genre, language, hasPictures, difficulty);
+
+      System.out.println(recommendedBook);
+   }
+
+   private String makeRecommendation(String book, String genre, String language, boolean hasPictures, int difficultyLevel){
+      String recommendedBook = "";
+
+      if (language.equalsIgnoreCase("spanish") || !hasPictures){
+         recommendedBook = book2;
+      } else {
+         if (book.equalsIgnoreCase("non-fiction")){
+            recommendedBook = book4;
+         } else {
+            if (hasPictures){
+               if (difficultyLevel < 3){
+                  recommendedBook = book3;
+               } else {
+                  recommendedBook = book1;
+               }
+            } else {
+               recommendedBook = book4;
+            }
+         }
+      }
+
+      return recommendedBook;
+   }
+
 }
