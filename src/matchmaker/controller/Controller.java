@@ -2,8 +2,11 @@ package matchmaker.controller;
 
 import java.util.Scanner;
 
+import matchmaker.controller.utility.UserInput;
+
 public class Controller {
    private Scanner keyboardInput;
+   private UserInput userInput;
 
    private String book1;
    private String book2;
@@ -12,6 +15,7 @@ public class Controller {
 
    public Controller(){
       this.keyboardInput = new Scanner(System.in);
+      this.userInput = new UserInput(keyboardInput);
       this.book1 = "Curious George";
       this.book2 = "365 Cuentos y Rimas Para la Hora de Dormir";
       this.book3 = "My First I Can Draw";
@@ -19,8 +23,7 @@ public class Controller {
    }
 
    public void start(){
-      makeRecommendation();
-      askQuestions();
+      userInput.getInput();
       keyboardInput.close();
    }
 
