@@ -14,7 +14,7 @@ public class UserInput {
       this.keyboardInput = scanner;
    }
 
-   public void getInput(){
+   public void askQuestions(){
       System.out.println("Do you want a fiction or non-fiction book?");
       bookType = keyboardInput.nextLine();
 

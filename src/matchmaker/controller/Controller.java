@@ -23,7 +23,8 @@ public class Controller {
    }
 
    public void start(){
-      userInput.getInput();
+      userInput.askQuestions();
+
       keyboardInput.close();
    }
 
