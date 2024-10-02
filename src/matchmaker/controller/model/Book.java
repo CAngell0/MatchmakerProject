@@ -37,4 +37,13 @@ public class Book {
    public int getDifficulty(){
       return this.difficulty;
    }
+
+   @Override
+   public String toString() {
+      String description = "This is the book: " + title + ", by: " + author;
+      description += "\nThe genre of this book is: " + genre;
+      description += "\n The difficult leve for the book is: " + difficulty;
+      description += "\n This book " + ((hasPictures) ? "does" : "does not") + " have pictures";
+      return description;
+   }
 }
