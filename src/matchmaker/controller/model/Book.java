@@ -8,9 +8,9 @@ public class Book {
    private int difficulty;
 
    public Book(){
-      this.title = "None";
-      this.author = "None";
-      this.genre = "None";
+      this.title = "";
+      this.author = "";
+      this.genre = "";
       this.hasPictures = false;
       this.difficulty = 1;
    }

@@ -1,0 +1,15 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>260</x><y>140</y><w>510</w><h>350</h></coordinates><panel_attributes>matchmaker.Book
+
+--
+
+ - title : String
+- author : String
+- genre : String
+- hasPictures : boolean
+- difficulty: int
+
+--
+
++ Book() : constructor
++ Book(String, String, String, boolean, int) : constructor
++ get()...</panel_attributes><additional_attributes></additional_attributes></element></diagram>
