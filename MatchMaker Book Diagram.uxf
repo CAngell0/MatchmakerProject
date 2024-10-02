@@ -6,6 +6,7 @@
 - author : String
 - genre : String
 - hasPictures : boolean
+- isInEnglish : boolean
 - difficulty: int
 
 --
