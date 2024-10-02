@@ -12,5 +12,6 @@
 --
 
 + Book() : constructor
-+ Book(String, String, String, boolean, int) : constructor
-+ get()...</panel_attributes><additional_attributes></additional_attributes></element></diagram>
++ Book(String, String, String, boolean, boolean, int) : constructor
++ get()...
++ toString() : String</panel_attributes><additional_attributes></additional_attributes></element></diagram>

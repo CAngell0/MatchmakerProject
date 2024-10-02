@@ -18,4 +18,25 @@ public class Student {
       this.isEnglishSpeaker = isEnglishSpeaker;
       this.age = age;
    }
+
+   public String getName(){
+      return this.name;
+   }
+   public String getPreferredGenre(){
+      return this.preferredGenre;
+   }
+   public boolean getIsEnglishSpeaker(){
+      return this.isEnglishSpeaker;
+   }
+   public int getAge(){
+      return this.age;
+   }
+
+   @Override
+   public String toString() {
+      String description = "This is a student named \"" + name + "\" and they are " + age + " years old";
+      description += "\nThis student prefers the " + preferredGenre + " genre";
+      description += "\nThis student is" + ((isEnglishSpeaker) ? "" : " not") + " an English speaker";
+      return description;
+   }
 }

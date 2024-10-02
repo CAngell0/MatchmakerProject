@@ -1,0 +1,15 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>230</x><y>180</y><w>530</w><h>270</h></coordinates><panel_attributes>matchmaker.controller.model.Student
+
+--
+
+- name : String
+- preferredGenre : String
+- isEnglishSpeaker : boolean
+- age : int
+
+--
+
++ Student() : constructor
++ Student(String, String, boolean, int) : constructor
++ get()...
++ toString() : String</panel_attributes><additional_attributes></additional_attributes></element></diagram>
