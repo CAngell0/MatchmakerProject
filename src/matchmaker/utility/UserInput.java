@@ -1,4 +1,4 @@
-package matchmaker.controller.utility;
+package matchmaker.utility;
 
 import java.util.Scanner;
 

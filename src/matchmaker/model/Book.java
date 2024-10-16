@@ -1,4 +1,4 @@
-package matchmaker.controller.model;
+package matchmaker.model;
 
 public class Book {
    private String title;
