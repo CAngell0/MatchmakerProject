@@ -31,6 +31,23 @@ public class Controller {
       keyboardInput.close();
    }
 
+   private ArrayList<String> generateRecommendation(ArrayList<Student> studentList, ArrayList<Book> bookList){
+      ArrayList<String> studentRecommendations = new ArrayList<String>();
+
+      for (int index = 0; index < studentList.size(); index++){
+         Student currentStudent  = studentList.get(index);
+         String currentRecommendation = "Student #" + index + " " + currentStudent.getName();
+         currentRecommendation += " is recommended to read: ";
+
+         Book recommendedBook = makeRecommendation(currentStudent, bookList);
+         currentRecommendation += recommendedBook.getTitle();
+
+         studentRecommendations.add(currentRecommendation);
+      }
+
+      return studentRecommendations;
+   }
+
    private Book makeRecommendation(Student currentStudent, ArrayList<Book> bookList){
       Book recommendedBook = null;
       ArrayList<Book> recommendList = new ArrayList<Book>();
