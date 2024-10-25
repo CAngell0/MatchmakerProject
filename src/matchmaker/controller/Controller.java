@@ -7,6 +7,8 @@ import matchmaker.model.Book;
 import matchmaker.model.Student;
 import matchmaker.utility.UserInput;
 
+import matchmaker.controller.IOController;
+
 public class Controller {
    private Scanner keyboardInput;
    private UserInput userInput;
@@ -17,18 +19,20 @@ public class Controller {
    private String book4;
 
    public Controller(){
-      this.keyboardInput = new Scanner(System.in);
-      this.userInput = new UserInput(keyboardInput);
-      this.book1 = "Curious George";
-      this.book2 = "365 Cuentos y Rimas Para la Hora de Dormir";
-      this.book3 = "My First I Can Draw";
-      this.book4 = "Richard Scarry's Cars";
+      // this.keyboardInput = new Scanner(System.in);
+      // this.userInput = new UserInput(keyboardInput);
    }
 
    public void start(){
-      userInput.askQuestions();
+      // userInput.askQuestions();
 
-      keyboardInput.close();
+      // keyboardInput.close();
+
+      // ArrayList<Book> books = IOController.readBooksFromFile("books_modified.csv");
+      // System.out.println("The list has this many items: " + books.size());
+
+     ArrayList<Student> students = IOController.readStudentsFromFile("group_one.csv");
+     System.out.println(students.size());
    }
 
    private ArrayList<String> generateRecommendation(ArrayList<Student> studentList, ArrayList<Book> bookList){

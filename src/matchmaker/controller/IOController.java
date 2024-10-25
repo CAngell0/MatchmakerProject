@@ -34,9 +34,33 @@ public class IOController {
       } catch (FileNotFoundException error){
          System.out.println("Error reading book file.");
          System.out.println(error.getMessage());
-         System.err.println(error.getStackTrace());
       }
 
       return books;
+   }
+
+   public static ArrayList<Student> readStudentsFromFile(String path){
+      ArrayList<Student> students = new ArrayList<Student>();
+
+      try (Scanner fileScanner = new Scanner(new File(path))){
+         String studentLine = fileScanner.nextLine();
+         while (fileScanner.hasNextLine()){
+            studentLine = fileScanner.nextLine();
+            String[] lineContents = studentLine.split(",");
+
+            students.add(new Student(
+               lineContents[0], //Name
+               (lineContents[1].equals("English")), //isEnglishSpeaker
+               Integer.parseInt(lineContents[2]), //age
+               lineContents[3], //preferredGenre
+               Boolean.parseBoolean(lineContents[4]) //wantsPictures
+            ));
+         }
+      } catch (IOException error){
+         System.out.println("Error reading student file.");
+         System.out.println(error.getMessage());
+      }
+
+      return students;
    }
 }

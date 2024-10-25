@@ -14,7 +14,7 @@ public class Student {
       this.age = 0;
       this.wantsPictures = false;
    }
-   public Student(String name, String preferredGenre, boolean isEnglishSpeaker, int age, boolean wantsPictures){
+   public Student(String name, boolean isEnglishSpeaker, int age, String preferredGenre, boolean wantsPictures){
       this.name = name;
       this.preferredGenre = preferredGenre;
       this.isEnglishSpeaker = isEnglishSpeaker;

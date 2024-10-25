@@ -47,10 +47,10 @@ public class Book {
    @Override
    public String toString() {
       String description = "This is the book: " + title + ", by: " + author;
-      description += "\nThe genre of this book is: " + genre;
-      description += "\nThe difficult leve for the book is: " + difficulty;
-      description += "\nThis book " + ((hasPictures) ? "does" : "does not") + " have pictures";
-      description += "\nThis book is written in " + ((isInEnglish) ? "English" : "Spanish");
+      description += "\n\tThe genre of this book is: " + genre;
+      description += "\n\tThe difficult leve for the book is: " + difficulty;
+      description += "\n\tThis book " + ((hasPictures) ? "does" : "does not") + " have pictures";
+      description += "\n\tThis book is written in " + ((isInEnglish) ? "English" : "Spanish");
       return description;
    }
 }
