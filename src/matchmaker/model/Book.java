@@ -6,7 +6,7 @@ public class Book {
    private String genre;//
    private boolean hasPictures;//
    private boolean isInEnglish;//
-   private int difficulty;//
+   private int lexile;//
 
    public Book(){
       this.title = "";
@@ -14,7 +14,7 @@ public class Book {
       this.genre = "";
       this.hasPictures = false;
       this.isInEnglish = false;
-      this.difficulty = 1;
+      this.lexile = 1;
    }
    public Book(String title, String author, String genre, boolean hasPictures, boolean isInEnglish, int difficulty){
       this.title = title;
@@ -22,7 +22,7 @@ public class Book {
       this.genre = genre;
       this.hasPictures = hasPictures;
       this.isInEnglish = isInEnglish;
-      this.difficulty = difficulty;
+      this.lexile = difficulty;
    }
 
    public String getTitle(){
@@ -40,15 +40,15 @@ public class Book {
    public boolean getIsInEnglish(){
       return this.isInEnglish;
    }
-   public int getDifficulty(){
-      return this.difficulty;
+   public int getLexile(){
+      return this.lexile;
    }
 
    @Override
    public String toString() {
       String description = "This is the book: " + title + ", by: " + author;
       description += "\n\tThe genre of this book is: " + genre;
-      description += "\n\tThe difficult leve for the book is: " + difficulty;
+      description += "\n\tThe difficult leve for the book is: " + lexile;
       description += "\n\tThis book " + ((hasPictures) ? "does" : "does not") + " have pictures";
       description += "\n\tThis book is written in " + ((isInEnglish) ? "English" : "Spanish");
       return description;
