@@ -26,7 +26,7 @@ public class IOController {
                lineContents[1], //Author
                lineContents[2], //Genre
                Boolean.parseBoolean(lineContents[5]), //Has Pictures
-               (lineContents[3] == "English"), //Is In English
+               (lineContents[3].equalsIgnoreCase("english")), //Is In English
                Integer.parseInt(lineContents[4]) //Difficulty Level
             ));
          }
@@ -62,5 +62,16 @@ public class IOController {
       }
 
       return students;
+   }
+
+   public static ArrayList<Student> readAllStudents() {
+      ArrayList<Student> allStudents = new ArrayList<Student>();
+      ArrayList<Student> groupOne = IOController.readStudentsFromFile("group_one.csv");
+      ArrayList<Student> groupTwo = IOController.readStudentsFromFile("group_two.csv");
+      ArrayList<Student> groupThree = IOController.readStudentsFromFile("group_three.csv");
+      allStudents.addAll(groupOne);
+      allStudents.addAll(groupTwo);
+      allStudents.addAll(groupThree);
+      return allStudents;
    }
 }

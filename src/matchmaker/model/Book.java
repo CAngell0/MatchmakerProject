@@ -3,10 +3,10 @@ package matchmaker.model;
 public class Book {
    private String title;
    private String author;
-   private String genre;
-   private boolean hasPictures;
-   private boolean isInEnglish;
-   private int difficulty;
+   private String genre;//
+   private boolean hasPictures;//
+   private boolean isInEnglish;//
+   private int difficulty;//
 
    public Book(){
       this.title = "";
