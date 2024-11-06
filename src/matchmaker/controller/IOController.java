@@ -25,9 +25,9 @@ public class IOController {
                lineContents[0], //Title
                lineContents[1], //Author
                lineContents[2], //Genre
-               Boolean.parseBoolean(lineContents[5]), //Has Pictures
-               (lineContents[3].equalsIgnoreCase("english")), //Is In English
-               Integer.parseInt(lineContents[4]) //Difficulty Level
+               (lineContents[3].equalsIgnoreCase("english")),
+               Integer.parseInt(lineContents[4]), //Has Pictures
+               Boolean.parseBoolean(lineContents[5]) //Is In English //Difficulty Level
             ));
          }
          

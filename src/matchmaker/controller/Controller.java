@@ -44,7 +44,7 @@ public class Controller {
       }
 
       System.out.println("Recommendation for " + students.get(5).getName());
-      makeRecommendation(students.get(5), books);
+      makeRecommendation(students.get(5), this.hasPicturesList);
    }
 
    private Book makeRecommendation(Student student, ArrayList<Book> booksList){
@@ -61,18 +61,53 @@ public class Controller {
          if (book.getLexile() > lexileRange.minimum && book.getLexile() < lexileRange.maximum) rating++;
          if (book.getGenre().contains(student.getPreferredGenre())) rating++;
 
+         System.out.println((student.getIsEnglishSpeaker() == book.getIsInEnglish()) + ", " + (student.getWantsPictures() == book.getHasPictures()) + ", " + (book.getLexile() > lexileRange.minimum && book.getLexile() < lexileRange.maximum) + ", " + book.getGenre().contains(student.getPreferredGenre()));
+
          if (recommendedBooks.size() == 0){
             recommendedBooks.add(book);
             recommendedBookRatings.add(rating);
             continue;
          }
 
-         if (rating >= recommendedBookRatings.getLast() || recommendedBookRatings.size() < 5){
-            recommendedBooks.add(book);
-            recommendedBookRatings.add(rating);
-         }
+         // if (rating > recommendedBookRatings.get(recommendedBookRatings.size() - 1)){
+         //    for (int ratingIndex = recommendedBookRatings.size() - 1; ratingIndex >= 0 ; ratingIndex--){
+         //       if (rating <= recommendedBookRatings.get(ratingIndex)){
+         //          recommendedBooks.add(ratingIndex, book);
+         //          recommendedBookRatings.add(ratingIndex, rating);
+         //          break;
+         //       }
+         //    }
+         // } else if (rating == recommendedBookRatings.get(recommendedBookRatings.size() - 1) && !(recommendedBooks.size() >= 5)){
+         //    recommendedBooks.add(book);
+         //    recommendedBookRatings.add(rating);
+         // }
       }
 
+      // System.out.println(recommendedBooks.toString());
+      // System.out.println(recommendedBookRatings.toString());
+
       return null;
+   }
+
+
+   private void manualRecommendation(){
+      String input = "";
+
+      while (!input.equalsIgnoreCase("quit")){
+         userInput.askQuestions();
+
+         System.out.println("Type quit to exit");
+         input = userInput.getScanner().nextLine();
+      }
+   }
+
+   private void testFiles(){
+      System.out.println("Checking that books are being read correctly...");
+      ArrayList<Book> books = IOController.readBooksFromFile("books_modified.csv");
+      System.out.println("Loadad: " + books.size());
+
+      System.out.println("Checking that students are being read correctly...");
+      ArrayList<Student> students = IOController.readAllStudents();
+      System.out.println("Loadad: " + students.size());
    }
 }

@@ -2,9 +2,9 @@ package matchmaker.model;
 
 public class Student {
    private String name;
-   private String preferredGenre;
    private boolean isEnglishSpeaker;
    private int age;
+   private String preferredGenre;
    private boolean wantsPictures;
 
    public Student(){

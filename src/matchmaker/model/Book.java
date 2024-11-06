@@ -3,10 +3,10 @@ package matchmaker.model;
 public class Book {
    private String title;
    private String author;
-   private String genre;//
-   private boolean hasPictures;//
-   private boolean isInEnglish;//
-   private int lexile;//
+   private String genre;
+   private boolean isInEnglish;
+   private int lexile;
+   private boolean hasPictures;
 
    public Book(){
       this.title = "";
@@ -16,13 +16,13 @@ public class Book {
       this.isInEnglish = false;
       this.lexile = 1;
    }
-   public Book(String title, String author, String genre, boolean hasPictures, boolean isInEnglish, int difficulty){
+   public Book(String title, String author, String genre, boolean isInEnglish,int lexile, boolean hasPictures){
       this.title = title;
       this.author = author;
       this.genre = genre;
       this.hasPictures = hasPictures;
       this.isInEnglish = isInEnglish;
-      this.lexile = difficulty;
+      this.lexile = lexile;
    }
 
    public String getTitle(){
