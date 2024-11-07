@@ -10,10 +10,15 @@ public class UserInput {
    private boolean hasPictures;
    private int difficultyLevel;
 
+   /**
+    * A wrapper that has functions for user input
+    * @param scanner The scanner to use for input
+    */
    public UserInput(Scanner scanner){
       this.keyboardInput = scanner;
    }
 
+   /**Asks questions for what kind of book the user wants and puts them into the object's properties */
    public void askQuestions(){
       System.out.println("Do you want a fiction or non-fiction book?");
       bookType = keyboardInput.nextLine();

@@ -8,6 +8,11 @@ public class LexileIndex {
       public int maximum;
       public int range;
 
+      /**
+       * Creates an object that contains a minimum, maximum, and range property
+       * @param minimum The minimum of the range
+       * @param maximum The maximum of the range
+       */
       public RangeValue(int minimum, int maximum){
          this.minimum = minimum;
          this.maximum = maximum;
@@ -23,10 +28,13 @@ public class LexileIndex {
    private HashMap<Integer, RangeValue> gradeLexileKey;
    private HashMap<Integer, RangeValue> ageGradeKey;
 
+   /**Creates an index that has data correlating a students age and grade to a range of what their lexile level should be*/
    public LexileIndex(){
+      //Indexes for lexiles that correlate to grade. And what age correlates to each grade
       this.ageGradeKey = new HashMap<Integer, RangeValue>();
       this.gradeLexileKey = new HashMap<Integer, RangeValue>();
 
+      //Adds all the ages correlated to each grade manually.
       this.ageGradeKey.put(5, new RangeValue(0, 0));
       this.ageGradeKey.put(6, new RangeValue(0, 1));
       this.ageGradeKey.put(7, new RangeValue(1, 2));
@@ -38,6 +46,7 @@ public class LexileIndex {
       this.ageGradeKey.put(13, new RangeValue(7, 8));
       this.ageGradeKey.put(14, new RangeValue(8, 9));
 
+      //Adds all the grades correlated to each lexile range manually
       this.gradeLexileKey.put(0, new RangeValue(0, 100));
       this.gradeLexileKey.put(1, new RangeValue(0, 100));
       this.gradeLexileKey.put(2, new RangeValue(100, 300));
@@ -49,11 +58,21 @@ public class LexileIndex {
       this.gradeLexileKey.put(8, new RangeValue(600, 900));
       this.gradeLexileKey.put(9, new RangeValue(650, 1000));
    }
-
+   
+   /**
+    * Gets a lexile score range that correlates to a student's grade level
+    * @param grade What grade the student is in
+    * @return A lexile score range
+    */
    public RangeValue getLexileByGrade(int grade){
       return this.gradeLexileKey.get(grade);
    }
 
+   /**
+    * Gets a lexile score range that correlates to a student's grade level
+    * @param age What age the student is
+    * @return A lexile score range
+    */
    public RangeValue getLexileByAge(int age){
       RangeValue gradeRange = this.ageGradeKey.get(age);
       RangeValue lowerLexileRange = this.gradeLexileKey.get(gradeRange.minimum);

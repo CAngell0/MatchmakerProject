@@ -10,6 +10,11 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 
 public class IOController {
+   /**
+    * Gets a list of books from a csv file
+    * @param path The file path to read the book data from
+    * @return  A list of Book instances from the file
+    */
    public static ArrayList<Book> readBooksFromFile(String path){
       ArrayList<Book> books = new ArrayList<Book>();
 
@@ -30,20 +35,25 @@ public class IOController {
                Boolean.parseBoolean(lineContents[5]) //Is In English //Difficulty Level
             ));
          }
-         
       } catch (FileNotFoundException error){
          System.out.println("Error reading book file.");
          System.out.println(error.getMessage());
       }
-
       return books;
    }
 
+   /**
+    * Gets a list of studnets from a csv file
+    * @param path The file path to read the student data from
+    * @return  A list of Student instances from the file
+    */
    public static ArrayList<Student> readStudentsFromFile(String path){
       ArrayList<Student> students = new ArrayList<Student>();
 
       try (Scanner fileScanner = new Scanner(new File(path))){
+         //Gets the first header line of the CSV file. This is to increment the scanner and skip this line
          String studentLine = fileScanner.nextLine();
+         //Gets each next line along with the student characteristics. Turns it into student object and adds to the student ArrayList
          while (fileScanner.hasNextLine()){
             studentLine = fileScanner.nextLine();
             String[] lineContents = studentLine.split(",");
@@ -64,6 +74,10 @@ public class IOController {
       return students;
    }
 
+   /**
+    * Reads the student data from all the student groups and puts it into one list
+    * @return An ArrayList of all the students
+    */
    public static ArrayList<Student> readAllStudents() {
       ArrayList<Student> allStudents = new ArrayList<Student>();
       ArrayList<Student> groupOne = IOController.readStudentsFromFile("group_one.csv");

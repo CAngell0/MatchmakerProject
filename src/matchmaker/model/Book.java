@@ -8,6 +8,7 @@ public class Book {
    private int lexile;
    private boolean hasPictures;
 
+   /**Creates a book with defauolt, empty data */
    public Book(){
       this.title = "";
       this.author = "";
@@ -16,6 +17,15 @@ public class Book {
       this.isInEnglish = false;
       this.lexile = 1;
    }
+   /**
+    * Creates a book based on manuelly inputted data
+    * @param title The title of the book
+    * @param author The author of the book
+    * @param genre The gebre or the book
+    * @param isInEnglish Whether the book is in English
+    * @param lexile The lexile level of the book
+    * @param hasPictures Whether the book has pictures
+    */
    public Book(String title, String author, String genre, boolean isInEnglish,int lexile, boolean hasPictures){
       this.title = title;
       this.author = author;

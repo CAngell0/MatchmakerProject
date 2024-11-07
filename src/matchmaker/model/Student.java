@@ -7,6 +7,7 @@ public class Student {
    private String preferredGenre;
    private boolean wantsPictures;
 
+   /**Creates a student with default, empty values */
    public Student(){
       this.name = "";
       this.preferredGenre = "";
@@ -14,6 +15,14 @@ public class Student {
       this.age = 0;
       this.wantsPictures = false;
    }
+   /**
+    * Creates a student with manually inputted data
+    * @param name The name of the student
+    * @param isEnglishSpeaker Whether the student speads/reads in english
+    * @param age The age of the student
+    * @param preferredGenre The preferred genre of the book
+    * @param wantsPictures Whether the student wants pictures in their book
+    */
    public Student(String name, boolean isEnglishSpeaker, int age, String preferredGenre, boolean wantsPictures){
       this.name = name;
       this.preferredGenre = preferredGenre;
