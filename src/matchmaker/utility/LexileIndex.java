@@ -1,4 +1,4 @@
-package matchmaker.model;
+package matchmaker.utility;
 
 import java.util.HashMap;
 
