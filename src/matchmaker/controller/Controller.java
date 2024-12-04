@@ -10,30 +10,36 @@ import matchmaker.utility.LexileIndex;
 import matchmaker.utility.UserInput;
 import matchmaker.utility.LexileIndex.RangeValue;
 import matchmaker.controller.IOController;
+import matchmaker.view.Popup;
 
 public class Controller {
    private LexileIndex lexileIndex;
    private UserInput userInput;
+   private Popup view;
 
    public Controller() {
       this.lexileIndex = new LexileIndex();
+      this.userInput = new UserInput(new Scanner(System.in));
+      this.view = new Popup();
    }
 
    /**Runs the program */
    public void start() {
       //Gets all the student and book data
       ArrayList<Student> students = IOController.readAllStudents();
+      view.displayMessage("Read data from all students!");
       ArrayList<Book> books = IOController.readBooksFromFile("books_modified.csv");
+      view.displayMessage("Read data from books!");
 
       //Iterates through the students; makes a recommendation and logs it
+      String recommendations = "";
       for (Student currentStudent : students){
          Book recommendation = makeRecommendation(currentStudent, books);
-
-         System.out.println(MessageFormat.format("""
-            Student '{0}' is recommended "{1}"
-               By: {2}
-         """, currentStudent.getName(), recommendation.getTitle(), recommendation.getAuthor()));
+         // String recommendationString = "Student '" + currentStudent.getName() + "' is recommended \"" + recommendation.getTitle() + "\"\n\tBy: " + recommendation.getAuthor() + "\n";
+         // recommendations += recommendationString;
+         view.displayMessage("Student '" + currentStudent.getName() + "' is recommended \"" + recommendation.getTitle() + "\"\n\tBy: " + recommendation.getAuthor() + "\n");
       }
+      // view.displayMessage(recommendations);
    }
 
    /**
